@@ -1,0 +1,29 @@
+<h2> Tabla Alumnos</h2>
+<form #alumnoForm="ngForm">
+    <label>Nombre: </label> <input type="text" name="nombre" [(ngModel)]="alumnoName">
+    <button (click)="buscarAlumno()">Buscar</button>
+    <button (click)="refreshAlumnos()">Reset</button>
+</form>
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <td>Nombre</td>
+            <td>Apellidos</td>
+            <td>Dni</td>
+            <td></td>
+            <td></td>
+        </tr>
+
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of listAlumnos; let id = index">
+            <td>{{item.nombre}}</td>
+            <td>{{item.apellidos}}</td>
+            <td>{{item.dni}}</td>
+            <td><button (click)="goToAlumnoDetails(id)">Update</button></td>
+            <td><button (click)="delete(item)">Delete</button></td>
+        </tr>
+
+    </tbody>
+
+</table>
